@@ -1,0 +1,50 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard CIO</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="icon" href="img/logotipo.png" type="image/png" />
+</head>
+
+<body class="container">
+  <header>
+    <div class="header-info">
+      <img src="img/logotipo.png" alt="Logo" class="header-logo">
+      <h1>Dashboard CIO</h1>
+    </div>
+
+    <div class="header-actions">
+      <button id="btnPDF" class="btn-header btn-blue">
+        Baixar PDF
+      </button>
+      <button class="btn-header btn-green">
+        <a href="https://docs.google.com/spreadsheets/d/14xO5yA8ho4Fzz-IBaGaYnogcpLwG0IkzY2L3BeMkBIQ/edit?usp=sharing" target="_blank">Planilha</a>
+      </button>
+      <button class="btn-header btn-outline" onclick="voltar()">
+        Voltar
+      </button>
+    </div>
+  </header>
+
+  <div id="totalMensal" class="card-total-mensal"></div>
+
+  <h2>Soma por Despesas</h2>
+  <table id="tabelaDespesas"></table>
+
+  <h2>Despesas Mais Gastas - Percentual</h2>
+  <canvas id="graficoPizza"></canvas>
+
+  <h2>Despesas Mais Gastas - Filtro de Organizações</h2>
+  <canvas id="graficoBarras"></canvas>
+
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>

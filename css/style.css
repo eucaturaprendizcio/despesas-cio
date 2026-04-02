@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f4f4;
+  font-family: "Saira";
+  transition: padding-left 0.3s;
+}
+
+header {
+  background: #012c57;
+  padding: 10px 20px;
+  display: grid;
+  /* A primeira coluna (1fr) cresce, a segunda (auto) ocupa só o espaço do botão */
+  grid-template-columns: 1fr auto; 
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  color: white;
+}
+
+.logo {
+  width: 5%;
+  height: auto;
+}
+
+/* Container que junta o Menu e o Título */
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaço entre o ícone de barras e o texto */
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  white-space: nowrap; /* Impede o título de quebrar linha */
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.menu-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
+}
+
+.btn-buscar {
+  background: #1976d2;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tag-ceem {
+  background: #010841; /* Cor laranja para destacar */
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  gap: 10px;
+  font-family: "Saira";
+}
+
+.search-box input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 180px;
+  font-family: "Saira";
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+  font-family: "Saira";
+}
+
+button:hover {
+  background: #0e5cab;
+}
+
+/* MARQUEE */
+marquee {
+  background: #001931; /* Cor escura para combinar com o header */
+  color: white;
+  padding: 8px 0;
+  font-weight: 500;
+  border-bottom: 2px solid #1976d2;
+}
+
+.marquee-email {
+  color: #ffeb3b; /* Amarelo para destacar o link */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.marquee-email:hover {
+  color: #ffeb3b;
+  text-decoration: underline;
+}
+
+/* SIDEBAR */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -240px;
+  width: 240px;
+  height: 100%;
+  background: #012c57;
+  padding-top: 90px;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+#sidebar.active {
+  left: 0;
+}
+
+#sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar nav a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#sidebar nav a i {
+  font-size: 18px;
+  min-width: 22px;
+}
+
+#sidebar nav a:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* EMPURRA CONTEÚDO */
+body.sidebar-open {
+  padding-left: 240px;
+}
+
+/* CARDS */
+.cards {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card .tag {
+  background: #1976d2;
+  color: white;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* Estilo para a Tag de Data */
+.card-date {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  text-align: right;
+  margin-bottom: 8px;
+  font-weight: 500;
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-left: auto;
+}
+
+.btn-documento {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #2e4e7d; /* Verde escuro */
+  color: white !important; /* Força o texto a ser branco */
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.btn-documento:hover {
+  background-color: #1b2d5e; /* Verde mais escuro no hover */
+  transform: translateY(-2px);
+}
+
+/* CABEÇALHO DO MENU */
+.menu-header {
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.menu-header:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.menu-header .arrow {
+  margin-left: auto;
+  transition: transform 0.3s;
+}
+
+/* ATIVO */
+.menu-item.active {
+  display: flex;
+}
+
+.menu-item.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* Responsividade: Esconde o título em telas muito pequenas se necessário */
+@media (max-width: 600px) {
+  .header-title {
+    font-size: 0.9rem;
+  }
+  .search-box input {
+    display: none; /* Esconde o input em telas mini para não quebrar */
+  }
+}
+
+/* ========== UPDATE BANNER ========= */
+.update-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fundo escuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Garante que fique acima de tudo */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.update-banner.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.banner-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  text-align: center;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.update-banner.show .banner-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.banner-content h3 {
+  color: #012c57;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.banner-content ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.banner-content ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.banner-content ul li strong {
+  color: #1976d2; /* Cor azul para destacar as palavras-chave */
+}
+
+.close-banner-btn {
+  background: #2e7d32; /* Verde */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.close-banner-btn:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+}

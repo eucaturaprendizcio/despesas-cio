@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGD - CIO</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <div id="updateBanner" class="update-banner">
+    <div class="banner-content">
+      <h3>🚀 Novidades no Sistema de Despesas!</h3>
+      <ul>
+        <li>✨ <b>Novo Layout:</b> Interface mais moderna e intuitiva.</li>
+        <li>🗓️ <b>Detalhes nos Cards:</b> Data e CEEM Responsável adicionados para melhor rastreabilidade.</li>
+        <li>🔍 <b>Filtros Avançados:</b> Nova tela de relatório com filtros de despesas mensais.</li>
+        <li> 📢 <b>Atualizações na Marquee:</b> Mensagens importantes agora são exibidas de forma mais visível.</li>
+      </ul>
+      <button class="close-banner-btn" onclick="closeUpdateBanner()">Entendi!</button>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <nav>
+
+      <!-- ITEM SIMPLES -->
+      <a onclick="dashboard()">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a onclick="filtroDespesas()">
+        <i class="fa-solid fa-filter"></i>
+        <span>Filtro de Despesas</span>
+      </a>
+
+
+    </nav>
+  </aside>
+
+  <!-- HEADER -->
+  <header>
+  <div class="header-left-group">
+    <button class="menu-btn" onclick="toggleSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <h2 class="header-title">SGD - Sistema de Gestão de Despesas - CIO</h2>
+  </div>
+
+  <div class="search-box">
+    <input id="search" type="text" placeholder="Pesquisar...">
+    <button class="btn-buscar">Buscar</button>
+  </div>
+</header>
+
+<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+  <span>📧 Dúvidas ou Suporte? Entre em contato pelo e-mail: 
+    <a href="mailto:menoraprendiz01.eucatur@gmail.com" class="marquee-email">menoraprendiz01.eucatur@gmail.com</a>
+  </span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <span>🚀 SDG CIO - Versão 2.0 atualizada!</span>
+</marquee>
+
+  <div class="cards" id="categorias"></div>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>

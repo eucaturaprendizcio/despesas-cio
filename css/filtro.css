@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@400;600&display=swap');
+
+body {
+  font-family: 'Saira', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+
+header {
+  background: #012c57;
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="month"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  padding: 8px 15px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resumo {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  gap: 30px;
+}
+
+.table-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.btn-documento {
+  padding: 5px 10px;
+  background: #2e477d;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.btn-documento:hover { background: #1b365e; }
+
+.tag-ceem-table {
+  background: #012c57;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* Ajuste para a tabela não ficar muito apertada */
+table th, table td {
+  font-size: 13px;
+  white-space: nowrap; /* Evita que o texto quebre linha e suje a tabela */
+}

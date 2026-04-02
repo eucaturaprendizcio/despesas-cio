@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtro de Despesas</title>
+  <link rel="stylesheet" href="css/filtro.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h2>Relatório Mensal de Despesas</h2>
+      <div class="filter-controls">
+        <label for="mesFiltro">Selecionar Mês:</label>
+        <input type="month" id="mesFiltro">
+        <button onclick="voltar()">Voltar</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="resumo">
+      <span>Total de itens: <strong id="totalItens">0</strong></span>
+      <span>Soma Total: <strong id="somaTotal">R$ 0,00</strong></span>
+    </div>
+
+    <div class="table-container">
+      <table id="tabelaDespesas">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Ceem Responsável</th>
+            <th>Tipo de Despesa</th>
+            <th>Ocorrência</th>
+            <th>Número da Nota</th>
+            <th>Valor</th>
+            <th>Arquivo</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabela">
+          </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="js/filtro.js"></script>
+</body>
+</html>
