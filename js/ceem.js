@@ -1,35 +1,61 @@
 const API = "https://script.google.com/macros/s/AKfycbxd63CJEZFzY1qxQY9Q302DSHwd_FAW4QIKeXQuxbL6YVutJHHzup-JXKhcnscpUooBIw/exec";
 let todosDados = [];
 
-// 1. Inicializa a aplicação
+// Inicialização
 async function inicializar() {
     try {
         const res = await fetch(API);
         todosDados = await res.json();
         
-        // Define o ano atual dinamicamente (2026)
+        // Define o ano atual dinamicamente
         const anoAtual = new Date().getFullYear();
         document.getElementById("labelAno").innerText = `Exercício: ${anoAtual}`;
         
         processarDados(anoAtual);
     } catch (error) {
-        console.error("Erro ao carregar dados da API:", error);
+        console.error("Erro ao carregar dados:", error);
     }
 }
 
-// 2. Processa, Ordena e Renderiza os Cards
+// Função para tratar o nome do CEEM e encontrar a imagem na pasta img-band
+function gerarCaminhoImagem(nomeCeem) {
+    // 1. LIMPEZA INICIAL: Remove a palavra "CEEM" e espaços extras para comparar
+    let nomeBase = nomeCeem.replace(/CEEM/i, "").trim();
+
+    // 2. MAPEAMENTO DE EXCEÇÕES: Forçamos o caminho exato para nomes difíceis
+    const excecoes = {
+        "P. Prudente": "p-prudente",
+        "Jí-Paraná": "ji-parana",
+        "Goiânia": "goiania"
+    };
+
+    // Se o nome (sem a palavra CEEM) for uma exceção, usa o valor do mapa
+    if (excecoes[nomeBase]) {
+        return `img-band/${excecoes[nomeBase]}.png`;
+    }
+
+    // 3. REGRA GERAL (para os outros nomes):
+    let nomeLimpo = nomeBase.toLowerCase()
+        .normalize("NFD")               // Remove acentos
+        .replace(/[\u0300-\u036f]/g, "") 
+        .replace(/[.\-]/g, "")          // Remove pontos ou hifens soltos
+        .replace(/\s+/g, '-')           // Troca espaços por um único hífen
+        .replace(/-+/g, '-');           // Evita hifens duplos (-- )
+
+    return `img-band/${nomeLimpo}.png`;
+}
+
 function processarDados(anoAlvo) {
     const grid = document.getElementById("gridCards");
     grid.innerHTML = "";
 
-    // Filtrar apenas dados do ano atual
+    // 1. Filtrar dados do ano atual
     const dadosAno = todosDados.filter(item => {
         if (!item.data) return false;
-        const dataItem = new Date(item.data);
-        return dataItem.getFullYear() === anoAlvo;
+        return new Date(item.data).getFullYear() === anoAlvo;
     });
 
-    // Agrupar por CEEM
+    // 2. Agrupar por CEEM
     const agrupado = {};
     let somaGeral = 0;
 
@@ -40,27 +66,23 @@ function processarDados(anoAlvo) {
         const nomeMes = data.toLocaleString('pt-BR', { month: 'long' });
 
         if (!agrupado[nomeCeem]) {
-            agrupado[nomeCeem] = { 
-                nome: nomeCeem, 
-                total: 0, 
-                meses: {} 
-            };
+            agrupado[nomeCeem] = { nome: nomeCeem, total: 0, meses: {} };
         }
 
         agrupado[nomeCeem].total += valor;
-        // Soma por mês dentro do CEEM
         agrupado[nomeCeem].meses[nomeMes] = (agrupado[nomeCeem].meses[nomeMes] || 0) + valor;
         somaGeral += valor;
     });
 
-    // --- ORDENAÇÃO: DO MAIOR PARA O MENOR ---
+    // 3. ORDENAÇÃO: Do maior valor para o menor
     const listaOrdenada = Object.values(agrupado).sort((a, b) => b.total - a.total);
 
-    // 3. Gerar o HTML dos Cards
+    // 4. Renderizar Cards
     listaOrdenada.forEach(info => {
         let mesesHtml = "";
+        const caminhoImg = gerarCaminhoImagem(info.nome);
 
-        // Gerar linhas dos meses
+        // Criar linhas de meses
         for (const mes in info.meses) {
             mesesHtml += `
                 <div class="mes-linha">
@@ -72,24 +94,27 @@ function processarDados(anoAlvo) {
 
         grid.innerHTML += `
             <div class="card">
-                <h3>${info.nome}</h3>
-                <span class="valor">R$ ${info.total.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
-                <div class="card-detalhes">
-                    <strong>Detalhamento Mensal:</strong>
-                    ${mesesHtml}
+                <div class="card-header-img">
+                    <img src="${caminhoImg}" alt="${info.nome}" onerror="this.src='img-band/default.png'">
+                </div>
+                <div class="card-body">
+                    <span class="tag-ano">SISTEMA DE DESPESAS</span>
+                    <h3>${info.nome}</h3>
+                    <span class="valor">R$ ${info.total.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+                    <div class="card-detalhes">
+                        <strong>Resumo por Mês</strong>
+                        ${mesesHtml}
+                    </div>
                 </div>
             </div>
         `;
     });
 
-    // Atualiza o resumo no topo
     document.getElementById("somaTotal").innerText = `R$ ${somaGeral.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
 }
 
-// Função para o botão voltar
 function voltar() {
     window.location.href = "index.html";
 }
 
-// Inicia tudo
 inicializar();
