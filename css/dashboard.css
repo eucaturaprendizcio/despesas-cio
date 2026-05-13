@@ -71,6 +71,9 @@ header h1 {
 .btn-green { background-color: #2e7d32; }
 .btn-green:hover { background-color: #1b5e20; transform: translateY(-2px); }
 
+.btn-purple { background-color: #5d2e7d;}
+.btn-purple:hover { background-color: #3e1b5e; transform: translateY(-2px); }
+
 .btn-outline {
   background-color: transparent;
   border: 1.5px solid rgba(255,255,255,0.4);

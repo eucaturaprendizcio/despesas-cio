@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ceem.css">
+    <title>Central de Suporte</title>
+    <style>
+        .form-container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #012c57; }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: 'Saira', sans-serif; box-sizing: border-box; }
+        textarea { height: 120px; resize: vertical; }
+        .btn-enviar { width: 100%; background: #1976d2; color: white; border: none; padding: 15px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 1rem; }
+        .btn-enviar:hover { background: #012c57; }
+        #mensagemSucesso { display: none; margin-top: 20px; padding: 15px; background: #e8f5e9; color: #2e7d32; border-radius: 6px; text-align: center; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h2>Central de Suporte</h2>
+            <button onclick="window.location.href='index.html'">Voltar</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <form id="formSuporte">
+                <div class="form-group">
+                    <label>Seu Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label>Assunto:</label>
+                    <select id="assunto" name="assunto">
+                        <option value="Erro no Sistema">Erro no Sistema</option>
+                        <option value="Dúvida">Dúvida</option>
+                        <option value="Sugestão">Sugestão</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Descrição do Problema:</label>
+                    <textarea id="mensagem" name="mensagem" required placeholder="Descreva detalhadamente o que está acontecendo..."></textarea>
+                </div>
+                <button type="submit" class="btn-enviar" id="btnAcao">Enviar Solicitação</button>
+            </form>
+            <div id="mensagemSucesso">✅ Solicitação enviada com sucesso!</div>
+        </div>
+    </main>
+
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbznH5QlX91AiZs2aD7hThtc664Y7a5roF5NB3V8Q_Het-KYnrlRqM1yasQ4uPqVbwNZxg/exec";
+
+        document.getElementById('formSuporte').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnAcao');
+            btn.innerText = "Enviando...";
+            btn.disabled = true;
+
+            const dados = {
+                acao: "suporte",
+                nome: document.getElementById('nome').value,
+                assunto: document.getElementById('assunto').value,
+                mensagem: document.getElementById('mensagem').value,
+                data: new Date().toLocaleString('pt-BR')
+            };
+
+            try {
+                await fetch(API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Importante para Google Apps Script
+                    body: JSON.stringify(dados)
+                });
+                
+                document.getElementById('formSuporte').reset();
+                document.getElementById('mensagemSucesso').style.display = 'block';
+                btn.innerText = "Enviar Solicitação";
+                btn.disabled = false;
+            } catch (error) {
+                alert("Erro ao enviar. Tente novamente.");
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

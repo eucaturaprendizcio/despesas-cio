@@ -49,6 +49,14 @@ function filtroDespesas() {
   window.location.href = "filtro.html";
 }
 
+function filtroCeem() {
+  window.location.href = "ceem.html";
+}
+
+function suporte() {
+  window.location.href = "suporte.html";
+}
+
 // --- FUNÇÕES DO BANNER DE ATUALIZAÇÕES ---
 
 const BANNER_VIEWED_KEY = 'updateBannerViewed'; // Chave para armazenar no localStorage

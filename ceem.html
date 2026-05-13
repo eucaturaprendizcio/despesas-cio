@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório de Gastos por CEEM</title>
+  <link rel="stylesheet" href="css/ceem.css">
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <div class="title-group">
+      <h2>Relatório de Gastos por CEEM</h2>
+      <span id="labelAno" class="ano-badge">Exercício: XXXX</span>
+    </div>
+    <div class="filter-controls">
+      <button onclick="voltar()" class="btn-voltar">Voltar</button>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <div class="resumo">
+      <span>Total Geral Acumulado: <strong id="somaTotal">R$ 0,00</strong></span>
+    </div>
+
+    <!-- Contêiner onde os cards serão inseridos -->
+    <div id="gridCards" class="grid-cards">
+      <!-- Cards aparecerão aqui via JS -->
+    </div>
+  </main>
+
+  <script src="js/ceem.js"></script>
+</body>
+</html>

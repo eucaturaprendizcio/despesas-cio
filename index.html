@@ -15,17 +15,17 @@
 <body>
 
   <div id="updateBanner" class="update-banner">
-    <div class="banner-content">
-      <h3>🚀 Novidades no Sistema de Despesas!</h3>
-      <ul>
-        <li>✨ <b>Novo Layout:</b> Interface mais moderna e intuitiva.</li>
-        <li>🗓️ <b>Detalhes nos Cards:</b> Data e CEEM Responsável adicionados para melhor rastreabilidade.</li>
-        <li>🔍 <b>Filtros Avançados:</b> Nova tela de relatório com filtros de despesas mensais.</li>
-        <li> 📢 <b>Atualizações na Marquee:</b> Mensagens importantes agora são exibidas de forma mais visível.</li>
-      </ul>
-      <button class="close-banner-btn" onclick="closeUpdateBanner()">Entendi!</button>
-    </div>
+  <div class="banner-content">
+    <h3>🚀 Novidades no Sistema de Despesas!</h3>
+    <ul>
+      <li>✨ <b>Novo Layout:</b> Interface mais moderna e intuitiva.</li>
+      <li>🔍 <b>Resumo por CEEM:</b> Nova visualização de gastos acumulados com ranking.</li>
+      <li>ℹ️ <b>Botão de Acesso ao Formulário:</b> Acesso rápido ao fórmulário de lançamentos.</li>
+      <li>🎧 <b>Suporte Técnico:</b> Nova aba para reportar problemas diretamente na planilha.</li>
+    </ul>
+    <button class="close-banner-btn" onclick="closeUpdateBanner()">Entendi!</button>
   </div>
+</div>
 
   <!-- SIDEBAR -->
   <aside id="sidebar">
@@ -37,12 +37,22 @@
         <span>Dashboard</span>
       </a>
 
+      <!-- ITEM SIMPLES -->
       <a onclick="filtroDespesas()">
         <i class="fa-solid fa-filter"></i>
         <span>Filtro de Despesas</span>
       </a>
+      
+      <!-- ITEM SIMPLES -->
+      <a onclick="filtroCeem()">
+        <i class="fa-solid fa-list"></i>
+        <span>Relatório de Gastos por CEEM</span>
+      </a>
 
-
+      <a onclick="suporte()">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Suporte Técnico</span>
+      </a>
     </nav>
   </aside>
 
@@ -62,11 +72,11 @@
 </header>
 
 <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-  <span>📧 Dúvidas ou Suporte? Entre em contato pelo e-mail: 
+  <span>📧 Dúvidas ou Suporte? Acesse a aba Suporte ou entre em contato pelo e-mail: 
     <a href="mailto:menoraprendiz01.eucatur@gmail.com" class="marquee-email">menoraprendiz01.eucatur@gmail.com</a>
   </span>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <span>🚀 SDG CIO - Versão 2.0 atualizada!</span>
+  <span>🚀 SDG CIO - Versão 3.0 atualizada!</span>
 </marquee>
 
   <div class="cards" id="categorias"></div>

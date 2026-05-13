@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@400;600&display=swap');
+
+body {
+  font-family: 'Saira', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+}
+
+header {
+  background: #012c57;
+  color: white;
+  padding: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinha o botão com o bloco de texto */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title-group {
+  display: flex;
+  flex-direction: column; /* Faz o ano ficar embaixo do título */
+  gap: 5px;
+}
+
+.title-group h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Estilo do Ano embaixo do título */
+.ano-badge {
+  background: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
+  color: #ffca28; /* Cor de destaque (Amarelo/Dourado) */
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: fit-content; /* Ajusta ao tamanho do texto */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-voltar {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-voltar:hover {
+  background: white;
+  color: #012c57;
+}
+
+.resumo {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-top: 5px solid #1976d2;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  color: #012c57;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.card .valor {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2e7d32;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.card-detalhes {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.mes-linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+button {
+  padding: 8px 15px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
