@@ -2,7 +2,12 @@ const API = "https://script.google.com/macros/s/AKfycbxd63CJEZFzY1qxQY9Q302DSHwd
 const params = new URLSearchParams(window.location.search);
 const tipo = params.get("tipo");
 
-document.getElementById("tituloCategoria").innerText = "Despesas: " + tipo;
+document.getElementById("tituloCategoria").innerText = tipo;
+// Define a imagem de fundo do banner puxando a imagem correspondente da pasta img
+const bannerElement = document.getElementById("categoryBanner");
+if (bannerElement && tipo) {
+  bannerElement.style.backgroundImage = `url('img/${tipo}.png')`;
+}
 
 async function carregarSolicitacoes() {
   const res = await fetch(API + "?tipo=" + tipo);
