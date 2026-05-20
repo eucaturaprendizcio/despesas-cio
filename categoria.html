@@ -15,14 +15,29 @@
   <header>
     <img src="img/logotipo.png" class="logo" alt="Logo">
 
+    <!-- Blocos de Informações Centrais -->
+    <div class="header-info-container">
+      <div class="info-block">
+        <span class="info-label">Valor Anual da Categoria</span>
+        <span class="info-value" id="valorAnual">R$ 0,00</span>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Última CEEM Registrada</span>
+        <span class="info-value" id="ultimaCeem">—</span>
+      </div>
+    </div>
+
     <div class="search-box">
       <input id="search" type="text" placeholder="Pesquisar...">
       <button>Buscar</button>
       <button onclick="voltar()">Voltar</button>
     </div>
-
-
   </header>
+
+  <!-- MARQUEE DE ÚLTIMOS REGISTROS -->
+  <marquee id="marqueeRegistros" behavior="scroll" direction="left">
+    Carregando último registro...
+  </marquee>
 
   <!-- NOVO BANNER DA CATEGORIA -->
   <section id="categoryBanner" class="category-banner">

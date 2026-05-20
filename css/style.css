@@ -14,15 +14,68 @@ body {
 header {
   background: #012c57;
   padding: 10px 20px;
-  display: grid;
-  /* A primeira coluna (1fr) cresce, a segunda (auto) ocupa só o espaço do botão */
-  grid-template-columns: 1fr auto; 
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 900;
   color: white;
+}
+
+/* Container e Blocos de Informação da Header */
+.header-info-container {
+  display: flex;
+  gap: 15px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.info-block {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #1976d2;
+  padding: 6px 14px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+.info-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #bbb;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* MARQUEE REESTILIZADA */
+#marqueeRegistros {
+  background: #001931;
+  color: white;
+  padding: 10px 0;
+  font-weight: 500;
+  font-size: 13px;
+  border-bottom: 2px solid #1976d2;
+  display: block;
+}
+
+.marquee-item {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.marquee-highlight {
+  color: #ffeb3b;
+  font-weight: 700;
 }
 
 .logo {

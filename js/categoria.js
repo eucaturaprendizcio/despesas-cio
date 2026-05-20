@@ -14,9 +14,24 @@ async function carregarSolicitacoes() {
   const dados = await res.json();
 
   const lista = document.getElementById("lista");
+  lista.innerHTML = ""; // Limpa antes de renderizar
+
+  if (!dados || dados.length === 0) {
+    document.getElementById("marqueeRegistros").innerText = "Nenhum registro encontrado para esta categoria.";
+    return;
+  }
+
+  let totalValorAnual = 0;
+  
+  // Ordena os dados por data decrescente (o primeiro do array será o mais recente)
+  const dadosOrdenados = [...dados].sort((a, b) => new Date(b.data) - new Date(a.data));
 
   dados.forEach(item => {
     const dataFormatada = item.data ? new Date(item.data).toLocaleDateString('pt-BR') : "—";
+    
+    // Soma o valor para o bloco anual (garantindo que seja tratado como número)
+    const valorNumerico = parseFloat(item.valorNF) || 0;
+    totalValorAnual += valorNumerico;
 
     lista.innerHTML += `
       <div class="card">
@@ -26,11 +41,31 @@ async function carregarSolicitacoes() {
         </div>
         <h3>Ocorrência ${item.ocorrencia}</h3>
         <p><b>Número NF:</b> ${item.numeroNF || "—"}</p>
-        <p><b>Valor:</b> R$ ${item.valorNF}</p>
+        <p><b>Valor:</b> R$ ${valorNumerico.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
         ${item.linkNF ? `<a href="${item.linkNF}" target="_blank" class="btn-documento">Ver Documento</a>` : ""}
       </div>
     `;
   });
+
+  // Atualiza os blocos informativos da Header com base no registro mais recente
+  const maisRecente = dadosOrdenados[0];
+  const dataRecenteFormatada = maisRecente.data ? new Date(maisRecente.data).toLocaleDateString('pt-BR') : "—";
+  const valorRecenteNumerico = parseFloat(maisRecente.valorNF) || 0;
+
+  document.getElementById("valorAnual").innerText = totalValorAnual.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  document.getElementById("ultimaCeem").innerText = maisRecente.ceemResponsavel || "—";
+
+  // Alimenta a Marquee com a estrutura solicitada do último registro
+  document.getElementById("marqueeRegistros").innerHTML = `
+    <span class="marquee-item">
+      Último Registro: 
+      <span class="marquee-highlight">${maisRecente.ceemResponsavel || "Sem CEEM"}</span> | 
+      ${dataRecenteFormatada} | 
+      Ocorrência: ${maisRecente.ocorrencia} | 
+      NF: ${maisRecente.numeroNF || "—"} | 
+      <span class="marquee-highlight">R$ ${valorRecenteNumerico.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+    </span>
+  `;
 }
 
 carregarSolicitacoes();
