@@ -1,87 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SGD - CIO</title>
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Login - SGD</title>
+  <link rel="stylesheet" href="css/login.css">
 </head>
+<body class="login-body">
 
-<body>
-
-  <div id="updateBanner" class="update-banner">
-  <div class="banner-content">
-    <h3>🚀 Novidades no Sistema de Despesas!</h3>
-    <ul>
-      <li>✨ <b>Novo Layout:</b> Interface mais moderna e intuitiva.</li>
-      <li>🔍 <b>Resumo por CEEM:</b> Nova visualização de gastos acumulados com ranking.</li>
-      <li>ℹ️ <b>Botão de Acesso ao Formulário:</b> Acesso rápido ao fórmulário de lançamentos.</li>
-      <li>🎧 <b>Suporte Técnico:</b> Nova aba para reportar problemas diretamente na planilha.</li>
-    </ul>
-    <button class="close-banner-btn" onclick="closeUpdateBanner()">Entendi!</button>
-  </div>
-</div>
-
-  <!-- SIDEBAR -->
-  <aside id="sidebar">
-    <nav>
-
-      <!-- ITEM SIMPLES -->
-      <a onclick="dashboard()">
-        <i class="fa-solid fa-chart-line"></i>
-        <span>Dashboard</span>
-      </a>
-
-      <!-- ITEM SIMPLES -->
-      <a onclick="filtroDespesas()">
-        <i class="fa-solid fa-filter"></i>
-        <span>Filtro de Despesas</span>
-      </a>
+  <div class="login-container">
+    <div class="login-box">
+      <img src="img/logotipo.png" alt="Logo Sistema" class="login-logo">
+      <p class="login-subtitle">Sistema de Gestão de Despesas - CIO</p>
       
-      <!-- ITEM SIMPLES -->
-      <a onclick="filtroCeem()">
-        <i class="fa-solid fa-list"></i>
-        <span>Relatório de Gastos por CEEM</span>
-      </a>
-
-      <a onclick="suporte()">
-        <i class="fa-solid fa-circle-question"></i>
-        <span>Suporte Técnico</span>
-      </a>
-    </nav>
-  </aside>
-
-  <!-- HEADER -->
-  <header>
-  <div class="header-left-group">
-    <button class="menu-btn" onclick="toggleSidebar()">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <h2 class="header-title">SGD - Sistema de Gestão de Despesas - CIO</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" required placeholder="Digite seu usuário" autocomplete="off">
+        </div>
+        
+        <div class="input-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required placeholder="Digite sua senha">
+        </div>
+        
+        <button type="submit" id="btnEntrar">Entrar no Painel</button>
+      </form>
+      
+      <p id="mensagemErro" class="msg-erro"></p>
+    </div>
   </div>
 
-  <div class="search-box">
-    <input id="search" type="text" placeholder="Pesquisar...">
-    <button class="btn-buscar">Buscar</button>
-  </div>
-</header>
-
-<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-  <span>📧 Dúvidas ou Suporte? Acesse a aba Suporte ou entre em contato pelo e-mail: 
-    <a href="mailto:menoraprendiz01.eucatur@gmail.com" class="marquee-email">menoraprendiz01.eucatur@gmail.com</a>
-  </span>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <span>🚀 SDG CIO - Versão 3.0 atualizada!</span>
-</marquee>
-
-  <div class="cards" id="categorias"></div>
-
-  <script src="js/index.js"></script>
+  <script src="js/login.js"></script>
 </body>
-
 </html>

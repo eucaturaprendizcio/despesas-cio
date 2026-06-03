@@ -59,7 +59,7 @@ function filtrarPorMes() {
 document.getElementById("mesFiltro").addEventListener("change", filtrarPorMes);
 
 function voltar() {
-    window.location.href = "index.html";
+    window.location.href = "abaprc.html";
 }
 
 inicializar();

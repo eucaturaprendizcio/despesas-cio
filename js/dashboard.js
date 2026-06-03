@@ -1,5 +1,5 @@
 function voltar() {
-    window.location.href = "index.html"; 
+    window.location.href = "abaprc.html"; 
 }
 
 // CONFIGURE SUA API GOOGLE SHEETS AQUI

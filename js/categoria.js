@@ -22,13 +22,13 @@ async function carregarSolicitacoes() {
   }
 
   let totalValorAnual = 0;
-  
+
   // Ordena os dados por data decrescente (o primeiro do array será o mais recente)
   const dadosOrdenados = [...dados].sort((a, b) => new Date(b.data) - new Date(a.data));
 
   dados.forEach(item => {
     const dataFormatada = item.data ? new Date(item.data).toLocaleDateString('pt-BR') : "—";
-    
+
     // Soma o valor para o bloco anual (garantindo que seja tratado como número)
     const valorNumerico = parseFloat(item.valorNF) || 0;
     totalValorAnual += valorNumerico;
@@ -42,7 +42,10 @@ async function carregarSolicitacoes() {
         <h3>Ocorrência ${item.ocorrencia}</h3>
         <p><b>Número NF:</b> ${item.numeroNF || "—"}</p>
         <p><b>Valor:</b> R$ ${valorNumerico.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-        ${item.linkNF ? `<a href="${item.linkNF}" target="_blank" class="btn-documento">Ver Documento</a>` : ""}
+        <div style="display: flex; gap: 8px; margin-top: 10px;">
+          ${item.linkNF ? `<a href="${item.linkNF}" target="_blank" class="btn-documento">Ver Documento</a>` : ""}
+          ${item.ocorrencia ? `<a href="https://fluig.consultoriaan.com:8443/portal/p/0700001/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=${item.ocorrencia}" target="_blank" class="btn-ocorrencia">Ver Ocorrência</a>` : ""}
+        </div>
       </div>
     `;
   });
@@ -80,6 +83,6 @@ document.getElementById("search").addEventListener("input", () => {
 });
 
 function voltar() {
-  window.location.href = "index.html";
+  window.location.href = "abaprc.html";
 }
 
