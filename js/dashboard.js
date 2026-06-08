@@ -23,7 +23,7 @@ carregarDados().then(linhas => {
   // ================= TOTAL MENSAL =================
   // Valor em A5
   document.getElementById("totalMensal").innerHTML =
-    `Total Mensal: ${linhas[4][0]}`;
+    `Total Anual: ${linhas[4][0]}`;
 
   // ================= SOMA POR DESPESAS =================
   // Valores: D6:F15
