@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Verdana:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 body {
   margin: 0;
   background: #f4f4f4;
-  font-family: "Saira";
+  font-family: "Verdana";
   transition: padding-left 0.3s;
 }
 
@@ -139,7 +139,7 @@ header {
 .search-box {
   display: flex;
   gap: 10px;
-  font-family: "Saira";
+  font-family: "Verdana";
 }
 
 .search-box input {
@@ -147,7 +147,7 @@ header {
   border: 1px solid #ccc;
   border-radius: 6px;
   width: 180px;
-  font-family: "Saira";
+  font-family: "Verdana";
 }
 
 button {
@@ -157,7 +157,7 @@ button {
   background: #1976d2;
   color: white;
   cursor: pointer;
-  font-family: "Saira";
+  font-family: "Verdana";
 }
 
 button:hover {
@@ -242,11 +242,33 @@ body.sidebar-open {
 }
 
 .card {
+  position: relative; /* Essencial para o posicionamento do quadradinho */
   background: white;
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: 0.3s;
+}
+
+/* Margem superior extra apenas nos cards que têm o quadradinho para não cobrir o conteúdo interno */
+.card.card-protheus {
+  margin-top: 15px; 
+}
+
+/* O QUADRADINHO / ABA AZUL ESCURO NO TOPO */
+.quadradinho-protheus {
+  position: absolute;
+  top: -16px; /* Joga ele um pouco para fora, conectado ao topo do card */
+  left: 15px;  /* Alinhado à esquerda acompanhando o padding interno */
+  background-color: #001931; /* Azul escuro igual ao seu Marquee/Header */
+  color: #ffffff;
+  padding: 2px 24px;
+  border-radius: 4px 4px 0 0; /* Arredonda apenas os cantos de cima */
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  white-space: nowrap;
 }
 
 .card img {

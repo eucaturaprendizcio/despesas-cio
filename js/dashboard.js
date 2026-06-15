@@ -36,7 +36,7 @@ carregarDados().then(linhas => {
     </tr>
   `;
 
-  for (let i = 5; i <= 14; i++) { // linhas 6 a 15
+  for (let i = 5; i <= 15; i++) { // linhas 6 a 16
     tabela.innerHTML += `
       <tr>
         <td>${linhas[i][3]}</td>
@@ -47,9 +47,9 @@ carregarDados().then(linhas => {
   }
 
   // ================= GRÁFICO PIZZA =================
-  // Valores: A8:B18
-  const despesasPizza = linhas.slice(8, 18).map(l => l[0]);
-  const percentPizza = linhas.slice(8, 18).map(l => getValor(l[1]));
+  // Valores: A8:B19
+  const despesasPizza = linhas.slice(8, 20).map(l => l[0]);
+  const percentPizza = linhas.slice(8, 20).map(l => getValor(l[1]));
 
   new Chart(document.getElementById("graficoPizza"), {
     type: "pie",
@@ -60,9 +60,9 @@ carregarDados().then(linhas => {
   });
 
   // ================= GRÁFICO DE BARRAS =================
-  // Valores: D19:E28
-  const despesasBar = linhas.slice(18, 28).map(l => l[3]);
-  const valoresBar = linhas.slice(18, 28).map(l => getValor(l[4]));
+  // Valores: D20:E30
+  const despesasBar = linhas.slice(19, 30).map(l => l[3]);
+  const valoresBar = linhas.slice(19, 30).map(l => getValor(l[4]));
 
   new Chart(document.getElementById("graficoBarras"), {
     type: "bar",

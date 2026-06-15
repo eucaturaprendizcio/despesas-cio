@@ -35,7 +35,7 @@ async function carregarSolicitacoes() {
     // Ordena os dados por data decrescente (o primeiro do array será o mais recente)
     const dadosOrdenados = [...dados].sort((a, b) => new Date(b.data) - new Date(a.data));
 
-    dados.forEach(item => {
+dados.forEach(item => {
       const dataFormatada = item.data ? new Date(item.data).toLocaleDateString('pt-BR') : "—";
 
       // Soma o valor para o bloco anual (garantindo que seja tratado como número)
@@ -46,19 +46,18 @@ async function carregarSolicitacoes() {
       const estaLancadoNoProtheus = dadosProtheus.includes(String(item.ocorrencia));
 
       lista.innerHTML += `
-        <div class="card">
+        <div class="card ${estaLancadoNoProtheus ? 'card-protheus' : ''}">
+          
+          ${estaLancadoNoProtheus ? `
+            <div class="quadradinho-protheus" title="Lançado no Sistema">
+              <span>NOTA FISCAL LANÇADA NO PROTHEUS</span>
+            </div>
+          ` : ""}
+
           <div style="display: flex; justify-content: space-between; align-items: flex-start;">
               <span class="tag-ceem">${item.ceemResponsavel || "Sem CEEM"}</span>
               <span class="card-date">${dataFormatada}</span>
           </div>
-
-          ${estaLancadoNoProtheus ? `
-            <div style="margin-top: 8px;">
-              <span class="tag-protheus" style="background-color: #28a745; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block;">
-                Lançado PROTHEUS
-              </span>
-            </div>
-          ` : ""}
 
           <h3>Ocorrência ${item.ocorrencia}</h3>
           <p><b>Número NF:</b> ${item.numeroNF || "—"}</p>
