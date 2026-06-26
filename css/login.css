@@ -1,148 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Verdana:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 :root {
-    --cor-primaria: #012c57; /* Azul escuro original do SGD */
-    --cor-foco: #1976d2;     /* Azul de destaque para o input focus */
+  --cor-primaria: #012c57;
+  /* Azul escuro original do SGD */
+  --cor-foco: #1976d2;
+  /* Azul de destaque para o input focus */
 }
 
 body {
-    display: grid;
-    place-items: center;
-    margin: 0;
-    height: 100vh;
-    padding: 0 24px;
-    background-image: url("../img/background.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    font-family: "Verdana", sans-serif;
-    color: #f9f9f9;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: 100vh;
+  padding: 0 24px;
+  background-image: url("../img/background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: "Verdana", sans-serif;
+  color: #f9f9f9;
+}
+
+img {
+  pointer-events: none;
 }
 
 .card {
-    width: 100%;
-    margin: 0 20px;
-    padding: 50px 30px 44px;
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.45); /* Escurecido levemente para dar leitura ao texto branco */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  width: 100%;
+  margin: 0 20px;
+  padding: 50px 30px 44px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.45);
+  /* Escurecido levemente para dar leitura ao texto branco */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-.card > h3 {
-    color: #f9f9f9;
-    margin: 0 0 4px;
-    font-size: 22px;
-    font-weight: 600;
+.card>h3 {
+  color: #f9f9f9;
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .login-subtitle {
-    margin: 0 0 24px;
-    font-size: 13px;
-    color: rgb(255 255 255 / 60%);
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: rgb(255 255 255 / 60%);
 }
 
-.card > img.logo {
-    width: 25%;
-    max-width: 120px;
-    height: auto;
-    padding-bottom: 15px;
+.card>img.logo {
+  width: 25%;
+  max-width: 120px;
+  height: auto;
+  padding-bottom: 15px;
 }
 
 .form {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    gap: 16px;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 16px;
 }
 
-.form > :is(input, button) {
-    width: 100%;
-    height: 56px;
-    border-radius: 6px;
-    border: 0;
+.form> :is(input, button) {
+  width: 100%;
+  height: 56px;
+  border-radius: 6px;
+  border: 0;
 }
 
-.form > input {
-    color: rgb(255 255 255 / 96%);
-    background: rgb(255 255 255 / 10%);
-    font-family: inherit;
-    font-size: 16px;
-    padding: 0 16px;
-    transition: background 0.3s, outline 0.2s;
+.form>input {
+  color: rgb(255 255 255 / 96%);
+  background: rgb(255 255 255 / 10%);
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0 16px;
+  transition: background 0.3s, outline 0.2s;
 }
 
-.form > input:focus {
-    outline: 2px solid var(--cor-foco);
-    background: rgb(255 255 255 / 16%);
+.form>input:focus {
+  outline: 2px solid var(--cor-foco);
+  background: rgb(255 255 255 / 16%);
 }
 
-.form > input::placeholder {
-    color: rgb(255 255 255 / 45%);
+.form>input::placeholder {
+  color: rgb(255 255 255 / 45%);
 }
 
-.form > button {
-    cursor: pointer;
-    width: 100%;
-    height: 56px;
-    padding: 0 16px;
-    background: var(--cor-primaria);
-    color: #f9f9f9;
-    border: 0;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background 0.3s;
+.form>button {
+  cursor: pointer;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--cor-primaria);
+  color: #f9f9f9;
+  border: 0;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s;
 }
 
-.form > button:hover {
-    background: #001f3f;
+.form>button:hover {
+  background: #001f3f;
 }
 
 /* CONTAINER DE FEEDBACK DE ERRO */
 .msg-erro {
-    display: block;
-    color: #ff4d4d;
-    font-size: 14px;
-    margin-top: 4px;
-    font-weight: 500;
-    text-align: left;
+  display: block;
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 4px;
+  font-weight: 500;
+  text-align: left;
 }
 
 /* RESPONSIVIDADE BASEADA NO PROJETO 2 */
-@media (width >= 448px) {
-    .card {
-        margin: 0;
-        width: 70%;
-        min-width: 400px;
-    }
+@media (width >=448px) {
+  .card {
+    margin: 0;
+    width: 70%;
+    min-width: 400px;
+  }
 }
 
-@media (width >= 500px) {
-    body { padding: 0; }
+@media (width >=500px) {
+  body {
+    padding: 0;
+  }
 }
 
 /* Efeito de barra lateral fixa a partir de telas desktop */
-@media (width >= 628px) {
-    .card {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        padding: 0 44px;
-        width: 40%;
-        max-width: 500px;
-        min-width: 420px;
-        display: flex;
-        border-radius: 0;
-        flex-direction: column;
-        justify-content: center;
-        background: rgba(1, 44, 87, 0.4); /* Mescla o azul do SGD com o efeito glass */
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
-    }
+@media (width >=628px) {
+  .card {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 44px;
+    width: 40%;
+    max-width: 500px;
+    min-width: 420px;
+    display: flex;
+    border-radius: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(1, 44, 87, 0.4);
+    /* Mescla o azul do SGD com o efeito glass */
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+  }
 }

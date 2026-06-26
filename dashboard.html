@@ -25,10 +25,12 @@
         Baixar PDF
       </button>
       <button class="btn-header btn-green">
-        <a href="https://docs.google.com/spreadsheets/d/14xO5yA8ho4Fzz-IBaGaYnogcpLwG0IkzY2L3BeMkBIQ/edit?usp=sharing" target="_blank">Planilha</a>
+        <a href="https://docs.google.com/spreadsheets/d/14xO5yA8ho4Fzz-IBaGaYnogcpLwG0IkzY2L3BeMkBIQ/edit?usp=sharing"
+          target="_blank">Planilha</a>
       </button>
       <button class="btn-header btn-purple">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf8r6L7i4YMpbzHDhD2teKeEDDe_w1PxqVQ0feqYY_u4kTdBw/viewform">Formulário</a>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf8r6L7i4YMpbzHDhD2teKeEDDe_w1PxqVQ0feqYY_u4kTdBw/viewform">Formulário</a>
       </button>
       <button class="btn-header btn-outline" onclick="voltar()">
         Voltar
@@ -48,6 +50,26 @@
   <canvas id="graficoBarras"></canvas>
 
   <script src="js/dashboard.js"></script>
+  <script>
+    // Bloqueia o clique com o botão direito do mouse
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Bloqueia atalhos de teclado específicos
+    document.addEventListener('keydown', function (event) {
+      // Bloqueia Ctrl+C (Copiar)
+      if (event.ctrlKey && event.key === 'c') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+U (Ver código fonte)
+      if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+Shift+I ou F12 (Tentar abrir o Elementos/F12)
+      if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </body>
 
 </html>

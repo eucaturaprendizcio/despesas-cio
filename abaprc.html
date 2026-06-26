@@ -7,27 +7,25 @@
   <title>SGD - CIO</title>
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="img/logotipo.png" type="image/png">
 
   <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
 </head>
 
 <body>
 
   <div id="updateBanner" class="update-banner">
-  <div class="banner-content">
-    <h3>🚀 Novidades no Sistema de Despesas!</h3>
-    <ul>
-      <li>✨ <b>Novo Layout:</b> Interface mais moderna e intuitiva.</li>
-      <li>🔍 <b>Resumo por CEEM:</b> Nova visualização de gastos acumulados com ranking.</li>
-      <li>ℹ️ <b>Botão de Acesso ao Formulário:</b> Acesso rápido ao fórmulário de lançamentos.</li>
-      <li>🎧 <b>Suporte Técnico:</b> Nova aba para reportar problemas diretamente na planilha.</li>
-    </ul>
-    <button class="close-banner-btn" onclick="closeUpdateBanner()">Entendi!</button>
+    <div class="banner-content">
+      <h3>🚀 Novidades no Sistema de Despesas!</h3>
+      <ul>
+        <li>✨ <b>Novo Layout:</b> Interface mais moderna e intuitiva.</li>
+        <li>🔍 <b>Resumo por CEEM:</b> Nova visualização de gastos acumulados com ranking.</li>
+        <li>ℹ️ <b>Botão de Acesso ao Formulário:</b> Acesso rápido ao fórmulário de lançamentos.</li>
+        <li>🎧 <b>Suporte Técnico:</b> Nova aba para reportar problemas diretamente na planilha.</li>
+      </ul>
+      <button class="close-banner-btn" onclick="closeUpdateBanner()">Entendi!</button>
+    </div>
   </div>
-</div>
 
   <!-- SIDEBAR -->
   <aside id="sidebar">
@@ -44,11 +42,17 @@
         <i class="fa-solid fa-filter"></i>
         <span>Filtro de Despesas</span>
       </a>
-      
+
       <!-- ITEM SIMPLES -->
       <a onclick="filtroCeem()">
         <i class="fa-solid fa-list"></i>
         <span>Relatório de Gastos por CEEM</span>
+      </a>
+
+      <!-- ITEM SIMPLES -->
+      <a onclick="dpMensal()">
+        <i class="fa-solid fa-list"></i>
+        <span>Relatório Mensal por Despesa</span>
       </a>
 
       <a onclick="suporte()">
@@ -59,31 +63,51 @@
   </aside>
 
   <!-- HEADER -->
-<header>
-  <div class="header-left-group">
-    <button class="menu-btn" onclick="toggleSidebar()">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <h2 class="header-title">SGD - Sistema de Gestão de Despesas - CIO</h2>
-  </div>
+  <header>
+    <div class="header-left-group">
+      <button class="menu-btn" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <h2 class="header-title">SGD - Sistema de Gestão de Despesas - CIO</h2>
+    </div>
 
-  <div class="search-box">
-    <input id="search" type="text" placeholder="Pesquisar...">
-    <button class="btn-buscar">Buscar</button>
-  </div>
-</header>
+    <div class="search-box">
+      <input id="search" type="text" placeholder="Pesquisar...">
+      <button class="btn-buscar">Buscar</button>
+    </div>
+  </header>
 
-<marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-  <span>📧 Dúvidas ou Suporte? Acesse a aba Suporte ou entre em contato pelo e-mail: 
-    <a href="mailto:menoraprendiz01.eucatur@gmail.com" class="marquee-email">menoraprendiz01.eucatur@gmail.com</a>
-  </span>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <span>🚀 SDG CIO - Versão 4.0!</span>
-</marquee>
+  <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+    <span>📧 Dúvidas ou Suporte? Acesse a aba Suporte ou entre em contato pelo e-mail:
+      <a href="mailto:menoraprendiz01.eucatur@gmail.com" class="marquee-email">menoraprendiz01.eucatur@gmail.com</a>
+    </span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>🚀 SDG CIO - Versão 4.0!</span>
+  </marquee>
 
   <div class="cards" id="categorias"></div>
 
   <script src="js/index.js"></script>
+  <script>
+    // Bloqueia o clique com o botão direito do mouse
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Bloqueia atalhos de teclado específicos
+    document.addEventListener('keydown', function (event) {
+      // Bloqueia Ctrl+C (Copiar)
+      if (event.ctrlKey && event.key === 'c') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+U (Ver código fonte)
+      if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+Shift+I ou F12 (Tentar abrir o Elementos/F12)
+      if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </body>
 
 </html>

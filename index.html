@@ -2,28 +2,48 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SGD</title>
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="icon" type="image/png" href="img/logotipo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - SGD</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="icon" type="image/png" href="img/logotipo.png">
 </head>
 
 <body>
-    <div class="card">
-        <img src="img/logotipo.png" alt="Logo SGD" class="logo" />
-        <h3>Login - SGD</h3>
-        <p class="login-subtitle">Sistema de Gestão de Despesas - CIO</p>
-        
-        <form class="form" id="loginForm">
-            <input type="text" id="usuario" required placeholder="Usuário" autocomplete="off" />
-            <input type="password" id="senha" required placeholder="Senha" />
-            <button type="submit" id="btnEntrar">Entrar no Painel</button>
-            <span id="mensagemErro" class="msg-erro"></span>
-        </form>
-    </div>
+  <div class="card">
+    <img src="img/logotipo.png" alt="Logo SGD" class="logo" />
+    <h3>Login - SGD</h3>
+    <p class="login-subtitle">Sistema de Gestão de Despesas - CIO</p>
 
-    <script src="js/login.js"></script>
+    <form class="form" id="loginForm">
+      <input type="text" id="usuario" required placeholder="Usuário" autocomplete="off" />
+      <input type="password" id="senha" required placeholder="Senha" />
+      <button type="submit" id="btnEntrar">Entrar no Painel</button>
+      <span id="mensagemErro" class="msg-erro"></span>
+    </form>
+  </div>
+
+  <script src="js/login.js"></script>
+  <script>
+    // Bloqueia o clique com o botão direito do mouse
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Bloqueia atalhos de teclado específicos
+    document.addEventListener('keydown', function (event) {
+      // Bloqueia Ctrl+C (Copiar)
+      if (event.ctrlKey && event.key === 'c') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+U (Ver código fonte)
+      if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+Shift+I ou F12 (Tentar abrir o Elementos/F12)
+      if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </body>
 
 </html>

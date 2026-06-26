@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Relatório de Gastos por CEEM</title>
   <link rel="stylesheet" href="css/ceem.css">
-  <link rel="icon" href="img/logotipo.png" type="image/png">
 </head>
+
 <body>
-<header>
-  <div class="header-content">
-    <div class="title-group">
-      <h2>Relatório de Gastos por CEEM</h2>
-      <span id="labelAno" class="ano-badge">Exercício: XXXX</span>
+  <header>
+    <div class="header-content">
+      <div class="title-group">
+        <h2>Relatório de Gastos por CEEM</h2>
+        <span id="labelAno" class="ano-badge">Exercício: XXXX</span>
+      </div>
+      <div class="filter-controls">
+        <button onclick="voltar()" class="btn-voltar">Voltar</button>
+      </div>
     </div>
-    <div class="filter-controls">
-      <button onclick="voltar()" class="btn-voltar">Voltar</button>
-    </div>
-  </div>
-</header>
+  </header>
 
   <main>
     <div class="resumo">
@@ -32,5 +33,26 @@
   </main>
 
   <script src="js/ceem.js"></script>
+  <script>
+    // Bloqueia o clique com o botão direito do mouse
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Bloqueia atalhos de teclado específicos
+    document.addEventListener('keydown', function (event) {
+      // Bloqueia Ctrl+C (Copiar)
+      if (event.ctrlKey && event.key === 'c') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+U (Ver código fonte)
+      if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+      }
+      // Bloqueia Ctrl+Shift+I ou F12 (Tentar abrir o Elementos/F12)
+      if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </body>
+
 </html>

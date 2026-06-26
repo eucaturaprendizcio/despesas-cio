@@ -57,6 +57,10 @@ function suporte() {
   window.location.href = "suporte.html";
 }
 
+function dpMensal() {
+  window.location.href = "dp-mensal.html";
+}
+
 // --- FUNÇÕES DO BANNER DE ATUALIZAÇÕES ---
 
 const BANNER_VIEWED_KEY = 'updateBannerViewed'; // Chave para armazenar no localStorage

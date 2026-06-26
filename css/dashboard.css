@@ -1,10 +1,17 @@
 /* ---------- Fonte ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Verdana:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 body {
   margin: 0;
   background: #f4f4f4;
-  font-family: "Verdana";
+  font-family: "Saira";
 }
 
 /* ---------- HEADER ---------- */
@@ -14,9 +21,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border-radius: 14px 14px 0 0; /* Arredondado apenas em cima para encaixar no card mensal */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 14px 14px 0 0;
+  /* Arredondado apenas em cima para encaixar no card mensal */
   border-bottom: 3px solid #1976d2;
+}
+
+img {
+  pointer-events: none;
 }
 
 .header-info {
@@ -27,7 +39,8 @@ header {
 
 .header-logo {
   height: 40px;
-  filter: brightness(0) invert(1); /* Deixa o logo branco se for escuro */
+  filter: brightness(0) invert(1);
+  /* Deixa o logo branco se for escuro */
 }
 
 header h1 {
@@ -53,7 +66,7 @@ header h1 {
 .btn-header {
   padding: 8px 16px;
   border-radius: 6px;
-  font-family: "Verdana";
+  font-family: "Saira";
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -65,21 +78,40 @@ header h1 {
   color: white;
 }
 
-.btn-blue { background-color: #1976d2; }
-.btn-blue:hover { background-color: #1565c0; transform: translateY(-2px); }
+.btn-blue {
+  background-color: #1976d2;
+}
 
-.btn-green { background-color: #2e7d32; }
-.btn-green:hover { background-color: #1b5e20; transform: translateY(-2px); }
+.btn-blue:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+}
 
-.btn-purple { background-color: #5d2e7d;}
-.btn-purple:hover { background-color: #3e1b5e; transform: translateY(-2px); }
+.btn-green {
+  background-color: #2e7d32;
+}
+
+.btn-green:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
+}
+
+.btn-purple {
+  background-color: #5d2e7d;
+}
+
+.btn-purple:hover {
+  background-color: #3e1b5e;
+  transform: translateY(-2px);
+}
 
 .btn-outline {
   background-color: transparent;
-  border: 1.5px solid rgba(255,255,255,0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
 }
+
 .btn-outline:hover {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-color: white;
 }
 
@@ -97,9 +129,9 @@ header h1 {
   padding: 20px;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   transition: 0.25s ease;
-  font-family: "Verdana";
+  font-family: "Saira";
   margin-bottom: 20px;
   margin-top: 0;
   border-top: none;
@@ -120,7 +152,7 @@ h2 {
   font-weight: 700;
   margin-top: 40px;
   margin-bottom: 12px;
-  font-family: "Verdana";
+  font-family: "Saira";
 }
 
 .btn-pdf {
@@ -130,10 +162,10 @@ h2 {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-family: "Verdana";
+  font-family: "Saira";
   font-size: 15px;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   transition: 0.25s ease;
   margin-bottom: 20px;
 }
@@ -141,7 +173,7 @@ h2 {
 .btn-pdf:hover {
   background: #0e5cab;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
 }
 
 .btn-pdf2 {
@@ -151,10 +183,10 @@ h2 {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-family: "Verdana";
+  font-family: "Saira";
   font-size: 15px;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   transition: 0.25s ease;
   margin-bottom: 20px;
 }
@@ -162,7 +194,7 @@ h2 {
 .btn-pdf:hover {
   background: #026907;
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
 }
 
 
@@ -173,8 +205,8 @@ table {
   background: white;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  font-family: "Verdana";
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  font-family: "Saira";
   margin-bottom: 20px;
 }
 
@@ -202,7 +234,7 @@ table tr:hover {
   background: #fff;
   padding: 25px;
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   margin: 25px 0;
   box-sizing: border-box;
   transition: 0.25s ease;
@@ -210,7 +242,7 @@ table tr:hover {
 
 .chart-box:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ---------- TÍTULO DOS GRÁFICOS ---------- */
@@ -219,7 +251,7 @@ table tr:hover {
   font-weight: 700;
   color: #012c57;
   margin-bottom: 20px;
-  font-family: "Verdana";
+  font-family: "Saira";
 }
 
 /* ---------- CANVAS (GRÁFICOS FULL WIDTH) ---------- */

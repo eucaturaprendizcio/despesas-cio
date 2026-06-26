@@ -1,0 +1,342 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS & RESET
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-family: 'Saira', sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. HEADER & CONTROLES (ESTILO NAVAL COERENTE)
+   ========================================================================== */
+header {
+  background: linear-gradient(135deg, #012c57 0%, #013d7a 100%);
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #1976d2;
+}
+
+img {
+  pointer-events: none;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.brand h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.brand p {
+  font-size: 0.85rem;
+  margin: 4px 0 0 0;
+  opacity: 0.85;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+input[type="month"] {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: white;
+  color: #333;
+  font-family: 'Saira', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  outline: none;
+}
+
+/* ==========================================================================
+   3. BOTÕES PADRONIZADOS
+   ========================================================================== */
+button,
+.btn-header {
+  padding: 8px 18px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Saira', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Cores de Ação */
+button,
+.btn-blue {
+  background-color: #1976d2;
+}
+
+button:hover,
+.btn-blue:hover {
+  background-color: #115293;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #012c57;
+}
+
+/* ==========================================================================
+   4. BLOCOS DE RESUMO & KPIs (CORRIGIDO)
+   ========================================================================== */
+.resumo {
+    max-width: 1400px;
+    margin: 25px auto;
+    padding: 20px 30px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center;     /* Centraliza os itens verticalmente */
+    gap: 60px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.resumo span {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.resumo strong {
+  color: #012c57;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.kpi-item {
+  display: flex;
+  flex-direction: column;
+  /* Joga o valor para baixo do título */
+  justify-content: center;
+}
+
+.kpi-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   5. GRID E CARDS DE DESPESAS (PREMIUM)
+   ========================================================================== */
+.dashboard-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 30px 40px 30px;
+  box-sizing: border-box;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 25px;
+}
+
+.expense-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid #eef2f5;
+}
+
+.expense-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(1, 44, 87, 0.15);
+}
+
+/* Tratamento das fotos de Categoria */
+.card-thumb {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background-color: #e2e8f0;
+  position: relative;
+}
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Recorta a imagem para preencher sem distorcer */
+  display: block;
+}
+
+/* Conteúdo interno do card */
+.card-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-tag {
+  background: #012c57;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 12px;
+}
+
+.card-name {
+  font-size: 1.2rem;
+  color: #1e293b;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+/* Caixa Financeira Inferior Alinhada */
+.card-financials {
+  margin-top: auto;
+  /* Força o alinhamento na base independente do texto */
+  background-color: #f8fafc;
+  padding: 14px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+}
+
+.financial-label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.financial-amount {
+  font-size: 1.25rem;
+  color: #1976d2;
+  font-weight: 700;
+}
+
+.card-summary-footer {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 10px;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDADE ADAPTATIVA
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input-group {
+    width: 100%;
+    justify-content: center;
+  }
+
+  input[type="month"] {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+
+  .resumo {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

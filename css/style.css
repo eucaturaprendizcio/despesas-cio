@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Verdana:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {
   margin: 0;
   background: #f4f4f4;
-  font-family: "Verdana";
+  font-family: "Saira";
   transition: padding-left 0.3s;
 }
 
@@ -19,11 +23,15 @@ header {
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 900;
   color: white;
+}
+
+img {
+  pointer-events: none;
 }
 
 /* Container e Blocos de Informação da Header */
@@ -87,14 +95,16 @@ header {
 .header-left-group {
   display: flex;
   align-items: center;
-  gap: 15px; /* Espaço entre o ícone de barras e o texto */
+  gap: 15px;
+  /* Espaço entre o ícone de barras e o texto */
 }
 
 .header-title {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
-  white-space: nowrap; /* Impede o título de quebrar linha */
+  white-space: nowrap;
+  /* Impede o título de quebrar linha */
 }
 
 .menu-btn {
@@ -110,7 +120,7 @@ header {
 }
 
 .menu-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
 }
 
@@ -124,7 +134,8 @@ header {
 }
 
 .tag-ceem {
-  background: #010841; /* Cor laranja para destacar */
+  background: #010841;
+  /* Cor laranja para destacar */
   color: #fff;
   font-size: 11px;
   font-weight: bold;
@@ -139,7 +150,7 @@ header {
 .search-box {
   display: flex;
   gap: 10px;
-  font-family: "Verdana";
+  font-family: "Saira";
 }
 
 .search-box input {
@@ -147,7 +158,7 @@ header {
   border: 1px solid #ccc;
   border-radius: 6px;
   width: 180px;
-  font-family: "Verdana";
+  font-family: "Saira";
 }
 
 button {
@@ -157,7 +168,7 @@ button {
   background: #1976d2;
   color: white;
   cursor: pointer;
-  font-family: "Verdana";
+  font-family: "Saira";
 }
 
 button:hover {
@@ -166,7 +177,8 @@ button:hover {
 
 /* MARQUEE */
 marquee {
-  background: #001931; /* Cor escura para combinar com o header */
+  background: #001931;
+  /* Cor escura para combinar com o header */
   color: white;
   padding: 8px 0;
   font-weight: 500;
@@ -174,7 +186,8 @@ marquee {
 }
 
 .marquee-email {
-  color: #ffeb3b; /* Amarelo para destacar o link */
+  color: #ffeb3b;
+  /* Amarelo para destacar o link */
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
@@ -225,7 +238,7 @@ marquee {
 }
 
 #sidebar nav a:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* EMPURRA CONTEÚDO */
@@ -242,33 +255,11 @@ body.sidebar-open {
 }
 
 .card {
-  position: relative; /* Essencial para o posicionamento do quadradinho */
   background: white;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
-}
-
-/* Margem superior extra apenas nos cards que têm o quadradinho para não cobrir o conteúdo interno */
-.card.card-protheus {
-  margin-top: 15px; 
-}
-
-/* O QUADRADINHO / ABA AZUL ESCURO NO TOPO */
-.quadradinho-protheus {
-  position: absolute;
-  top: -16px; /* Joga ele um pouco para fora, conectado ao topo do card */
-  left: 15px;  /* Alinhado à esquerda acompanhando o padding interno */
-  background-color: #001931; /* Azul escuro igual ao seu Marquee/Header */
-  color: #ffffff;
-  padding: 2px 24px;
-  border-radius: 4px 4px 0 0; /* Arredonda apenas os cantos de cima */
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-  white-space: nowrap;
 }
 
 .card img {
@@ -288,7 +279,7 @@ body.sidebar-open {
 
 .card:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
@@ -311,8 +302,10 @@ body.sidebar-open {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #2e4e7d; /* Verde escuro */
-  color: white !important; /* Força o texto a ser branco */
+  background-color: #2e4e7d;
+  /* Verde escuro */
+  color: white !important;
+  /* Força o texto a ser branco */
   text-decoration: none;
   border-radius: 6px;
   font-size: 13px;
@@ -322,7 +315,8 @@ body.sidebar-open {
 }
 
 .btn-documento:hover {
-  background-color: #1b2d5e; /* Verde mais escuro no hover */
+  background-color: #1b2d5e;
+  /* Verde mais escuro no hover */
   transform: translateY(-2px);
 }
 
@@ -330,8 +324,10 @@ body.sidebar-open {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #1976d2; /* Verde escuro */
-  color: white !important; /* Força o texto a ser branco */
+  background-color: #1976d2;
+  /* Verde escuro */
+  color: white !important;
+  /* Força o texto a ser branco */
   text-decoration: none;
   border-radius: 6px;
   font-size: 13px;
@@ -341,7 +337,8 @@ body.sidebar-open {
 }
 
 .btn-ocorrencia:hover {
-  background-color: #0e5cab; /* Verde mais escuro no hover */
+  background-color: #0e5cab;
+  /* Verde mais escuro no hover */
   transform: translateY(-2px);
 }
 
@@ -360,7 +357,7 @@ body.sidebar-open {
 }
 
 .menu-header:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .menu-header .arrow {
@@ -382,8 +379,10 @@ body.sidebar-open {
   .header-title {
     font-size: 0.9rem;
   }
+
   .search-box input {
-    display: none; /* Esconde o input em telas mini para não quebrar */
+    display: none;
+    /* Esconde o input em telas mini para não quebrar */
   }
 }
 
@@ -394,11 +393,13 @@ body.sidebar-open {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Fundo escuro semitransparente */
+  background: rgba(0, 0, 0, 0.7);
+  /* Fundo escuro semitransparente */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000; /* Garante que fique acima de tudo */
+  z-index: 10000;
+  /* Garante que fique acima de tudo */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
@@ -448,11 +449,13 @@ body.sidebar-open {
 }
 
 .banner-content ul li strong {
-  color: #1976d2; /* Cor azul para destacar as palavras-chave */
+  color: #1976d2;
+  /* Cor azul para destacar as palavras-chave */
 }
 
 .close-banner-btn {
-  background: #2e7d32; /* Verde */
+  background: #2e7d32;
+  /* Verde */
   color: white;
   border: none;
   padding: 12px 25px;
@@ -473,7 +476,8 @@ body.sidebar-open {
    ======================================================= */
 .category-banner {
   width: 100%;
-  height: 180px; /* Altura do banner */
+  height: 180px;
+  /* Altura do banner */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -484,7 +488,8 @@ body.sidebar-open {
 .banner-overlay {
   width: 100%;
   height: 100%;
-  background: rgba(0, 25, 49, 0.6); /* Tom escuro azulado */
+  background: rgba(0, 25, 49, 0.6);
+  /* Tom escuro azulado */
   display: flex;
   align-items: center;
   padding: 0 30px;
@@ -503,6 +508,7 @@ body.sidebar-open {
   .category-banner {
     height: 130px;
   }
+
   #tituloCategoria {
     font-size: 1.6rem;
   }
