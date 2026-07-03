@@ -46,29 +46,28 @@ async function carregarSolicitacoes() {
       const estaLancadoNoProtheus = dadosProtheus.includes(String(item.ocorrencia));
 
       lista.innerHTML += `
-        <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-              <span class="tag-ceem">${item.ceemResponsavel || "Sem CEEM"}</span>
-              <span class="card-date">${dataFormatada}</span>
-          </div>
+        <div class="card ${estaLancadoNoProtheus ? 'com-tag-protheus' : ''}">
+    ${estaLancadoNoProtheus ? `
+      <div class="tag-protheus-topo">
+        NOTA FISCAL LANÇADA NO PROTHEUS
+      </div>
+    ` : ""}
 
-          ${estaLancadoNoProtheus ? `
-            <div style="margin-top: 8px;">
-              <span class="tag-protheus" style="background-color: #28a745; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block;">
-                Lançado PROTHEUS
-              </span>
-            </div>
-          ` : ""}
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <span class="tag-ceem">${item.ceemResponsavel || "Sem CEEM"}</span>
+        <span class="card-date-badge">${dataFormatada}</span>
+    </div>
 
-          <h3>Ocorrência ${item.ocorrencia}</h3>
-          <p><b>Número NF:</b> ${item.numeroNF || "—"}</p>
-          <p><b>Valor:</b> R$ ${valorNumerico.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-          <div style="display: flex; gap: 8px; margin-top: 10px;">
-            ${item.linkNF ? `<a href="${item.linkNF}" target="_blank" class="btn-documento">Ver Documento</a>` : ""}
-            ${item.ocorrencia ? `<a href="https://fluig.consultoriaan.com:8443/portal/p/0700001/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=${item.ocorrencia}" target="_blank" class="btn-ocorrencia">Ver Ocorrência</a>` : ""}
-          </div>
-        </div>
-      `;
+    <h2 class="card-titulo">Ocorrência ${item.ocorrencia}</h2>
+    <p class="card-info"><b>Número NF:</b> ${item.numeroNF || "—"}</p>
+    <p class="card-info"><b>Valor:</b> R$ ${valorNumerico.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+    
+    <div class="card-actions">
+      ${item.linkNF ? `<a href="${item.linkNF}" target="_blank" class="btn-documento">Ver Documento</a>` : ""}
+      ${item.ocorrencia ? `<a href="https://fluig.consultoriaan.com:8443/portal/p/0700001/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=${item.ocorrencia}" target="_blank" class="btn-ocorrencia">Ver Ocorrência</a>` : ""}
+    </div>
+  </div>
+`;
     });
 
     // Atualiza os blocos informativos da Header com base no registro mais recente
