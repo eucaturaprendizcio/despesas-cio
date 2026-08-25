@@ -61,6 +61,10 @@ function dpMensal() {
   window.location.href = "dp-mensal.html";
 }
 
+function listaCompleta() {
+  window.location.href = "lista-completa.html";
+}
+
 // --- FUNÇÕES DO BANNER DE ATUALIZAÇÕES ---
 
 const BANNER_VIEWED_KEY = 'updateBannerViewed'; // Chave para armazenar no localStorage

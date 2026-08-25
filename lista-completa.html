@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Completa - SGD</title>
+    <link rel="stylesheet" href="css/filtro.css">
+    <link rel="icon" href="img/logotipo.png" type="image/png">
+    <style>
+
+        * {
+            font-family: "Saira", sans-serif;
+        }
+
+        /* Tags de código por categoria - cores baseadas na tabela de identificação */
+        .tag-codigo {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #buscaLista {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 220px;
+            font-family: "Saira", sans-serif;
+        }
+
+        .btn-tags {
+            background: #2a5580;
+            font-family: "Saira", sans-serif;
+        }
+
+        .btn-tags:hover {
+            background: #01427e;
+        }
+
+        /* BANNER / MODAL DE TAGS */
+        #tagsOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #tagsOverlay.show {
+            display: flex;
+        }
+
+        .tags-banner {
+            background: #fff;
+            width: min(600px, 92vw);
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 0;
+        }
+
+        .tags-banner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 30px;
+            background: #012c57;
+            color: #fff;
+            border-radius: 12px 12px 0 0;
+            position: sticky;
+            top: 0;
+        }
+
+        .tags-banner-header h3 {
+            margin: 0;
+            font-family: "Saira", sans-serif;
+        }
+
+        .tags-banner-header button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 6px;
+        }
+
+        .tags-banner-body {
+            padding: 10px 20px 20px;
+        }
+
+        .tags-banner-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tags-banner-row:last-child {
+            border-bottom: none;
+        }
+
+        .tags-banner-id {
+            font-weight: bold;
+            color: #999;
+            width: 28px;
+            flex-shrink: 0;
+        }
+
+        .tags-banner-desc {
+            flex: 1;
+            font-family: "Saira", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h2>Lista Completa de Despesas</h2>
+            <div class="filter-controls">
+                <input type="text" id="buscaLista" placeholder="Pesquisar...">
+                <button class="btn-tags" onclick="abrirTags()">TAGS</button>
+                <button onclick="voltar()">Voltar</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="resumo">
+            <span>Total de itens: <strong id="totalItens">0</strong></span>
+            <span>Soma Total: <strong id="somaTotal">R$ 0,00</strong></span>
+        </div>
+
+        <div class="table-container">
+            <table id="tabelaDespesas">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Ceem Responsável</th>
+                        <th>Tag</th>
+                        <th>Ocorrência</th>
+                        <th>Número da Nota</th>
+                        <th>Valor</th>
+                        <th>Arquivo</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- BANNER DE TAGS -->
+    <div id="tagsOverlay" onclick="if(event.target === this) fecharTags()">
+        <div class="tags-banner">
+            <div class="tags-banner-header">
+                <h3>Identificação das Tags</h3>
+                <button onclick="fecharTags()">&times;</button>
+            </div>
+            <div class="tags-banner-body" id="tagsBannerBody"></div>
+        </div>
+    </div>
+
+    <script src="js/lista-completa.js"></script>
+    <script>
+        // Bloqueia o clique com o botão direito do mouse
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Bloqueia atalhos de teclado específicos
+        document.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && event.key === 'c') event.preventDefault();
+            if (event.ctrlKey && event.key === 'u') event.preventDefault();
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) event.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
