@@ -17,7 +17,22 @@
 
     <form class="form" id="loginForm">
       <input type="text" id="usuario" required placeholder="Usuário" autocomplete="off" />
-      <input type="password" id="senha" required placeholder="Senha" />
+
+      <div class="senha-wrapper">
+        <input type="password" id="senha" required placeholder="Senha" autocomplete="off" />
+        <button type="button" id="toggleSenha" class="btn-olho" aria-label="Mostrar senha" aria-pressed="false">
+          <svg class="icone-olho icone-olho-aberto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+          <svg class="icone-olho icone-olho-fechado" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M10.6 5.2C11.06 5.07 11.53 5 12 5C19 5 23 12 23 12C22.6 12.7 21.9 13.7 20.9 14.7M6.6 6.6C3.6 8.3 1 12 1 12C1 12 5 19 12 19C13.9 19 15.5 18.5 16.9 17.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 10.2C9.18 10.7 9 11.33 9 12C9 13.66 10.34 15 12 15C12.68 15 13.31 14.8 13.82 14.46" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
       <button type="submit" id="btnEntrar">Entrar no Painel</button>
       <span id="mensagemErro" class="msg-erro"></span>
     </form>

@@ -23,6 +23,13 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     if (dados.autenticado === true) {
       // Salva uma flag temporária de login ativo no navegador
       localStorage.setItem("logado", "true");
+
+      // Usuário especial: vai direto pra tela de lançamentos e não navega pelo resto do sistema
+      if (usuario.toUpperCase() === "LANCAMENTO") {
+        window.location.href = "lancamento.html";
+        return;
+      }
+
       // Redireciona para a página principal (mude para index.html ou o nome da sua página de ocorrências)
       window.location.href = "abaprc.html"; 
     } else {
@@ -36,4 +43,17 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     btn.innerText = "Entrar";
     btn.disabled = false;
   }
+});
+
+// -----------------------------------------------------
+// Olhinho de mostrar/ocultar senha
+// -----------------------------------------------------
+const inputSenha = document.getElementById("senha");
+const btnToggleSenha = document.getElementById("toggleSenha");
+
+btnToggleSenha.addEventListener("click", () => {
+  const visivel = inputSenha.type === "text";
+  inputSenha.type = visivel ? "password" : "text";
+  btnToggleSenha.setAttribute("aria-pressed", String(!visivel));
+  btnToggleSenha.setAttribute("aria-label", visivel ? "Mostrar senha" : "Ocultar senha");
 });
